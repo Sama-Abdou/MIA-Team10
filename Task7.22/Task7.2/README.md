@@ -78,11 +78,11 @@ void loop() {
 }
 ```
 
-1. Read the analog feedback signal from `**INPUT_FEEDBACK**` (pin A0).
-2. calculate the current error `**currError**` by subtracting the setpoint from the feedback.
-3. Measure the current time (`**currTime**`) in milliseconds.
-4. Calculate the time interval (`**dt**`) by subtracting the previous time from the current time.
-5. Calculate the derivative term using `**(currError - prevError) / dt`.**
-6. Update the integral term by adding `**currError * dt`** to the integration variable.
-7. Calculate the PID output using the PID equation: `**outPut = Kp * currError + Ki * integration + Kd * derivative`.**
+1. Read the analog feedback signal from `INPUT_FEEDBACK` (pin A0).
+2. calculate the current error `currError` by subtracting the setpoint from the feedback.
+3. Measure the current time (`currTime`) in milliseconds.
+4. Calculate the time interval (`dt`) by subtracting the previous time from the current time.
+5. Calculate the derivative term using `(currError - prevError) / dt`.
+6. Update the integral term by adding `currError * dt` to the integration variable.
+7. Calculate the PID output using the PID equation: `outPut = Kp * currError + Ki * integration + Kd * derivative`.
 8. Update the previous error and previous time values for the next iteration.
