@@ -15,8 +15,8 @@ void setup() {
 void loop() {
   
   
- double flowrate = analogRead(INPUT_FEEDBACK);
-  PID1.computeOutput(flowrate);
+ double feedBack = analogRead(INPUT_FEEDBACK);
+  PID1.computeOutput(feedBack);
   PID1.displayOutput();
  
 }

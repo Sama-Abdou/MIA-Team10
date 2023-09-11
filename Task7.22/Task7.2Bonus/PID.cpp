@@ -7,12 +7,12 @@
     this->setPoint = setPoint ;
     
   }
-  void PID::computeOutput(double flowRate) {
+  void PID::computeOutput(double feedBack) {
     // Code will run after this delay
-    this->flowRate = flowRate ;
+    this->feedBack = feedBack ;
 
     // Calculate el error  by subtracting setPoint from the feed back (If estimated point of feedBack under setPoint then error will be +ve and viceversa)
-    currError = setPoint - flowRate;
+    currError = setPoint - feedBack;
     
     currTime = millis(); // Calculate change in time
     dt = currTime - prevTime;
