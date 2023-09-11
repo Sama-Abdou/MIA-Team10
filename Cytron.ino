@@ -1,7 +1,7 @@
 #define pwm1 3
 #define dir1 4
 
-float alpha = 0.2;
+float alpha = 0.1;
 float lastAvg = 0.0;
 
 void setup() {
