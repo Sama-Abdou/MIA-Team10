@@ -43,7 +43,9 @@ void setup() {
 - Declares **currentValue** as a byte variable and initializes it to 250.
 - Calculates the new filtered value using the exponential filter formula:
 
-**y[n] = α * y[n-1] + (1-α ) * x[n]**. ****The exponential filter gradually adjusts the motor speed by smoothing out sudden changes in the **currentValue**, providing a soft start effect. The **alpha** value determines the rate of change in the filter response. Higher values of **alpha** will result in faster response but less smoothing, while lower values of `alpha` will result in slower response but more smoothing.
+                                              **y[n] = α * y[n-1] + (1-α ) * x[n]** 
+
+The exponential filter gradually adjusts the motor speed by smoothing out sudden changes in the **currentValue**, providing a soft start effect. The **alpha** value determines the rate of change in the filter response. Higher values of **alpha** will result in faster response but less smoothing, while lower values of **alpha** will result in slower response but more smoothing.
 
 - Updates **lastAvg** with the new **currentAvg** value.
 - Sets the direction of the motor rotation by setting the **dir1** pin to **HIGH**.
