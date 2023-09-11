@@ -9,5 +9,5 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   digitalWrite(dir1, HIGH);
-  analogWrite(pwm1, 150)
+  analogWrite(pwm1, 150);
 }
