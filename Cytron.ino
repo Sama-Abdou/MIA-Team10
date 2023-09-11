@@ -1,13 +1,23 @@
 #define pwm1 3
 #define dir1 4
+
+float alpha = 0.2;
+float lastAvg = 0.0;
+
 void setup() {
-  // put your setup code here, to run once:
   pinMode(pwm1, OUTPUT);
   pinMode(dir1, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  byte currentAvg = 0;
+  byte currentValue = 250;
+  currentAvg = (currentValue*alpha) + ((lastAvg)*(1-alpha));
+  lastAvg = currentAvg;
   digitalWrite(dir1, HIGH);
-  analogWrite(pwm1, 150);
+  analogWrite(pwm1, currentAvg);
+  Serial.println(currentAvg);
+  delay(100);
 }
+
