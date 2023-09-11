@@ -57,17 +57,18 @@ private:
 PID PID1;
 
 void setup() {
+    pinMode(INPUT_FEEDBACK,INPUT);
     Serial.begin(9600);
     Serial.println("Enter Kp, Ki, Kd, setpoint respectively);
     if (Serial.available()) {
     // Read user input from Serial Monitor
-        double Kp, Ki, Kd, setPoint;
-        int parsed = Serial.parseInt();
+        double Kp, Ki, Kd, setPoint ;
+        int parsed = Serial.parseInt() ;
       if (parsed == 4) {
-            Kp = Serial.parseFloat();
-            Ki = Serial.parseFloat();
-            Kd = Serial.parseFloat();
-            SetPoint = Serial.parseFloat();
+            Kp = Serial.parseFloat() ;
+            Ki = Serial.parseFloat() ;
+            Kd = Serial.parseFloat() ;
+            SetPoint = Serial.parseFloat() ;
             PID1 = PID(Kp, Ki, Kd, setPoint)
             Serial.println("PID parameters are successfully entered.");
             }

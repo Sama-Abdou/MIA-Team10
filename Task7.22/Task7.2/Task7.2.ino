@@ -24,7 +24,7 @@ flowRate = analogRead(INPUT_FEEDBACK) ;
 currError = setPoint - flowRate ;
 
 currTime = millis() ; // Calculate changing in time
-dt = (currTime - prevTime ;
+dt = (currTime - prevTime) ;
 
 
 derivative = (currError - prevError) / dt ;    // Calculate derivative 
@@ -38,7 +38,7 @@ prevTime = currTime ;
 }
 //------------------------------------------------------------
 void setup() {
-  
+pinMode(INPUT_FEEDBACK,INPUT);
 timer1.start(); 
 Serial.begin(9600);
 
