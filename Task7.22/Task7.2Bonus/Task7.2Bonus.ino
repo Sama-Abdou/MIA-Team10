@@ -7,8 +7,8 @@ PID PID1;
 
 void setup() {
      pinMode(INPUT_FEEDBACK,INPUT);
-      PID1.setParameters(5000,1000,0.5,90);
-      Serial.begin(9600);
+     PID1.setParameters(5000,1000,0.5,90,350);
+     Serial.begin(9600);
        
             }
       

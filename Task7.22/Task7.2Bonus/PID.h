@@ -13,8 +13,9 @@ public:
  * @param Ki The integral term.
  * @param Kd The derivative term.
  * @param setPoint The desired setpoint.
+ * @param myLimits The limit for integral term to avoid integral windup
  */  
-  void setParameters(double Kp, double Ki, double Kd, double setPoint);
+  void setParameters(double Kp, double Ki, double Kd, double setPoint, double myLimits);
    /**
     * @brief Compute the PID control loop.
     * @param feedBack The feedback value from the analog sensor.
@@ -24,8 +25,14 @@ public:
     * @brief Display the outout.
     */   
   void displayOutput();
+   /**
+    * @brief Limit accumulation of integral term
+    */ 
+  void antiWindup();
+
 
 private:
+  double myLimits ;
   double Kp ;
   double Ki ;
   double Kd ;

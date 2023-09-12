@@ -1,10 +1,11 @@
 #include "PID.h"
 
-  void PID::setParameters(double Kp, double Ki, double Kd, double setPoint){
+  void PID::setParameters(double Kp, double Ki, double Kd, double setPoint, double myLimits){
     this->Kp = Kp ;
     this->Ki = Ki ;
     this->Kd = Kd ;
     this->setPoint = setPoint ;
+    this->myLimits = myLimits ;
     
   }
   void PID::computeOutput(double feedBack) {
@@ -19,9 +20,10 @@
 
 
     derivative = (currError - prevError) / dt ;    // Calculate derivative 
+    
     integration += currError * dt ; // calculate integration
-
-
+    antiWindup();
+    
   outPut = Kp * currError + Ki * integration + Kd * derivative ;   // Equation of output for PID controller
 
     //------------------ update previous values---------------
@@ -33,3 +35,7 @@
   Serial.print("Output = ");
   Serial.println(outPut);
   }
+   void PID::antiWindup()
+   {
+    integration = constrain(integration, -myLimits, myLimits) ;
+   }   
