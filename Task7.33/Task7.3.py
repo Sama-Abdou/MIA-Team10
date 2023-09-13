@@ -1,13 +1,14 @@
 import numpy as np
 import time
-import pyfirmata as ard
+#import pyfirmata as ard
 
 # Function to calculate w1, w2, w3
 def calculate_angular(vx, vy, omega, alpha1, alpha2, alpha3):
+    R=0.2 
     matrix = np.array([
         [np.cos(alpha1 + np.pi / 2), np.cos(alpha2 + np.pi / 2), np.cos(alpha3 + np.pi / 2)],
         [np.sin(alpha1 + np.pi / 2), np.sin(alpha2 + np.pi / 2), np.sin(alpha3 + np.pi / 2)],
-        [1, 1, 1]
+        [1/R, 1/R, 1/R]
     ])
     input_vector = np.array([vx, vy, omega])
     output_vector = np.dot(np.linalg.inv(matrix), input_vector)

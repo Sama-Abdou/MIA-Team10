@@ -18,10 +18,11 @@ import pyfirmata as ard
 
 ```
 def calculate_angular(vx, vy, omega, alpha1, alpha2, alpha3):
+    R=0.2
     matrix = np.array([
         [np.cos(alpha1 + np.pi / 2), np.cos(alpha2 + np.pi / 2), np.cos(alpha3 + np.pi / 2)],
         [np.sin(alpha1 + np.pi / 2), np.sin(alpha2 + np.pi / 2), np.sin(alpha3 + np.pi / 2)],
-        [1, 1, 1]
+        [1/R, 1/R, 1/R]
     ])
     input_vector = np.array([vx, vy, omega])
     output_vector = np.dot(np.linalg.inv(matrix), input_vector)
@@ -29,7 +30,7 @@ def calculate_angular(vx, vy, omega, alpha1, alpha2, alpha3):
 ```
 
 This function calculate the angular velocity of each motor
-
+`R` Distance between wheel and center
 `vx`the linear velocity in x direction 
 
 `vy` the linear velocity in x direction 
